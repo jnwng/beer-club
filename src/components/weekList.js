@@ -4,6 +4,8 @@ define(function(require) {
   var moment = require('moment');
   var React = require('react');
 
+  require('css!components/weekList.css');
+
   var WeekRow = React.createClass({
     getInitialState: function() {
       return {
@@ -51,8 +53,9 @@ define(function(require) {
       for (var week = currentWeek - 3; week < currentWeek + 6; week++) {
         dates.push(moment().day('Monday').week(week));
       }
+      var tableClass = 'table ' + (this.state.weekBeingClaimed > 0 ? 'weekBeingClaimed' : '');
       return (
-        <table className='table'>
+        <table className={tableClass}>
         {_(dates).map(function(date) {
           return <WeekRow
             date={date}
@@ -63,9 +66,15 @@ define(function(require) {
         </table>
       );
     },
-    onBeingClaimed: function(weekNum) {
+    onBeingClaimed: function(weekNumber) {
+      var weekBeingClaimed;
+      if (weekNumber === this.state.weekBeingClaimed) {
+        weekBeingClaimed = -1;
+      } else {
+        weekBeingClaimed = weekNumber;
+      }
       this.setState({
-        weekBeingClaimed: weekNum
+        weekBeingClaimed: weekBeingClaimed
       });
     }
   });

@@ -23,6 +23,7 @@
     "requirejs-text": "~2.0.12",
     "underscore": "~1.7.0",
     "moment": "~2.8.3",
-    "react-router": "~0.9.4"
+    "react-router": "~0.9.4",
+    "require-css": "~0.1.6"
   }
 }
