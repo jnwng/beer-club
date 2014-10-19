@@ -20,6 +20,8 @@
     "jsx-requirejs-plugin": "~0.3.0",
     "react": "~0.11.2",
     "bootstrap": "~3.2.0",
-    "requirejs-text": "~2.0.12"
+    "requirejs-text": "~2.0.12",
+    "underscore": "~1.7.0",
+    "moment": "~2.8.3"
   }
 }

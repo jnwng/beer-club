@@ -7,6 +7,7 @@ html.no-js
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='bower_components/normalize.css/normalize.css')
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
     //- link(rel='stylesheet', href='css/main.css')
     //-script(src='js/vendor/modernizr-2.7.1.min.js')
   body
@@ -17,7 +18,7 @@ html.no-js
       | to improve your experience.
     <![endif]-->
 
-    div#entry
+    div#entry.container-fluid
 
     script(src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js', data-main='index')
     script.
@@ -26,8 +27,10 @@ html.no-js
           'jquery': 'bower_components/jquery/dist/jquery.min',
           'JSXTransformer': 'bower_components/react/JSXTransformer',
           'jsx': 'bower_components/jsx-requirejs-plugin/js/jsx',
+          'moment': 'bower_components/moment/moment',
           'react': 'bower_components/react/react',
-          'text': 'bower_components/requirejs-text/text'
+          'text': 'bower_components/requirejs-text/text',
+          'underscore': 'bower_components/underscore/underscore-min'
         }
       });
 

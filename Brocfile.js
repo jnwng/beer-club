@@ -8,7 +8,13 @@ var mergeTrees = require('broccoli-merge-trees');
 
 var files = pickFiles(path.join(__dirname, 'src'), {
   srcDir: '/',
-  files: ['**/*.jade', '**/*.styl', '**/*.js', 'bower_components/normalize.css/normalize.css', '**/*.map'],
+  files: [
+    '**/*.jade',
+    '**/*.styl',
+    '**/*.js',
+    'bower_components/normalize.css/normalize.css',
+    'bower_components/bootstrap/dist/css/bootstrap.min.css',
+    '**/*.map'],
   destDir: '/'
 });
 
