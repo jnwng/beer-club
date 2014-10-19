@@ -1,4 +1,4 @@
 define(function(require) {
-  var indexComponent = require('jsx!components/index')
+  require('jsx!components/router');
 });
 

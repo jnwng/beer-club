@@ -29,9 +29,23 @@ html.no-js
           'jsx': 'bower_components/jsx-requirejs-plugin/js/jsx',
           'moment': 'bower_components/moment/moment',
           'react': 'bower_components/react/react',
+          'react-router': 'bower_components/react-router/dist/react-router',
           'text': 'bower_components/requirejs-text/text',
           'underscore': 'bower_components/underscore/underscore-min'
+        },
+        shim: {
+          'react-router': {
+            deps: ['react'],
+            exports: 'ReactRouter',
+            init: function(React) {
+              debugger
+            }
+          }
         }
+      });
+
+      require(['react'], function(React) {
+        return window.React = React;
       });
 
     //- Google Analytics: change UA-XXXXX-X to be your site's ID.

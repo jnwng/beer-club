@@ -28,11 +28,28 @@ define(function(require) {
     }
   });
 
+  var hosts = [{
+    id: '3df',
+    email: 'j@jnwng.com',
+    name: 'Jon Wong',
+    date: 1413695973
+  }];
+
   var HostList = React.createClass({
+    getInitialState: function() {
+      return {
+        hosts: []
+      };
+    },
+    componentDidMount: function() {
+      this.setState({
+        'hosts': hosts
+      });
+    },
     render: function() {
       return (
         <ol className='list-unstyled'>
-          {_(this.props.hosts).map(function(host) {
+          {_(this.state.hosts).map(function(host) {
             return (
               <li>
                 <HostRow date={host.date} name={host.name} />
@@ -44,15 +61,5 @@ define(function(require) {
     }
   });
 
-  var hosts = [{
-    id: '3df',
-    email: 'j@jnwng.com',
-    name: 'Jon Wong',
-    date: 1413695973
-  }]
-
-  React.renderComponent(
-    <HostList hosts={hosts} />,
-    $('#entry').get(0)
-  );
+  return HostList;
 });
