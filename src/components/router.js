@@ -7,7 +7,7 @@ define(function(require) {
 
   var DrinkList = require('jsx!components/drinkList');
   var Home = require('jsx!components/index');
-  var HostList = require('jsx!components/hostList');
+  var WeekList = require('jsx!components/weekList');
 
   React.renderComponent((
     // Put header here
@@ -16,7 +16,6 @@ define(function(require) {
         <DefaultRoute handler={Home} />
       </Route>
       <Route path='/drinks' handler={DrinkList}></Route>
-      <Route path='/hosts' handler={HostList}></Route>
     </Routes>
   ), $('#entry').get(0));
 
