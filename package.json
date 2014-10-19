@@ -1,0 +1,32 @@
+{
+  "name": "beer-club",
+  "version": "0.0.0",
+  "description": "an internal application for beer club at coursera",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jnwng/beer-club"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnwng/beer-club/issues"
+  },
+  "homepage": "https://github.com/jnwng/beer-club",
+  "dependencies": {
+    "broccoli": "^0.13.2",
+    "broccoli-react": "^0.5.0"
+  },
+  "devDependencies": {
+    "broccoli": "^0.13.2",
+    "broccoli-bower": "^0.2.1",
+    "broccoli-jade": "^1.0.0",
+    "broccoli-merge-trees": "^0.2.1",
+    "broccoli-static-compiler": "^0.2.1",
+    "broccoli-stylus": "^1.2.0",
+    "stylus": "^0.49.2"
+  }
+}
