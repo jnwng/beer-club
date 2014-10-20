@@ -3,6 +3,7 @@ define(function(require) {
   var _ = require('underscore');
   var moment = require('moment');
   var React = require('react');
+  var Link = require('react-router').Link;
 
   require('css!components/weekList.css');
 
@@ -14,11 +15,15 @@ define(function(require) {
     },
     render: function() {
       var rowClass = 'row ' + (this.props.beingClaimed ? 'active' : '');
-      var buttonClass = 'btn btn-primary ' + (this.state.claimed ? 'hide' : '');
+      var buttonClass = 'btn btn-primary ' +
+        (this.state.claimed ? 'hide' : '') +
+        (this.props.beingClaimed ? 'btn-success' : '');
       return (
         <tr className={rowClass} data-js={this.props.id}>
           <td className='col-sm-4'>
-            <button className={buttonClass} onClick={this.onBeingClaimed}>Claim</button>
+            <button className={buttonClass} onClick={this.claimWeek}>
+              {this.props.beingClaimed ? 'Claimed!' : 'Claim'}
+            </button>
           </td>
           <td className='col-sm-4'>
             {this.props.date.format('MMM Do')}
@@ -26,11 +31,17 @@ define(function(require) {
           <td className='col-sm-4'>
             {this.props.name}
           </td>
+          <td className='col-sm-4'>
+            <button className='btn btn-default' onClick={this.showDrinksForWeek}>See drink list</button>
+          </td>
         </tr>
       );
     },
-    onBeingClaimed: function() {
-      this.props.onBeingClaimed(this.props.date.week());
+    claimWeek: function() {
+      this.props.claimWeek(this.props.date.week());
+    },
+    showDrinksForWeek: function() {
+      this.props.showDrinksForWeek(this.props.date.week());
     }
   });
 
@@ -61,12 +72,13 @@ define(function(require) {
             date={date}
             name='Jon'
             beingClaimed={date.week() === this.state.weekBeingClaimed}
-            onBeingClaimed={this.onBeingClaimed}/>;
+            claimWeek={this.claimWeek}
+            showDrinksForWeek={this.showDrinksForWeek}/>;
         }.bind(this))}
         </table>
       );
     },
-    onBeingClaimed: function(weekNumber) {
+    claimWeek: function(weekNumber) {
       var weekBeingClaimed;
       if (weekNumber === this.state.weekBeingClaimed) {
         weekBeingClaimed = -1;
@@ -76,6 +88,9 @@ define(function(require) {
       this.setState({
         weekBeingClaimed: weekBeingClaimed
       });
+    },
+    showDrinksForWeek: function(weekNumber) {
+      this.props.showDrinksForWeek(weekNumber);
     }
   });
 

@@ -15,6 +15,8 @@ var files = pickFiles(path.join(__dirname, 'src'), {
     '**/*.js',
     'bower_components/normalize.css/normalize.css',
     'bower_components/bootstrap/dist/css/bootstrap.min.css',
+    'bower_components/font-awesome/css/font-awesome.min.css',
+    'bower_components/font-awesome/fonts/*',
     '**/*.map'],
   destDir: '/'
 });
