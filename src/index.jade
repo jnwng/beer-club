@@ -21,14 +21,18 @@ html.no-js
 
     div#entry.container
 
-    script(src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js', data-main='index')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js')
     script.
       require.config({
         paths: {
+          'backbone': 'bower_components/backbone/backbone',
+          'backbone-associations': 'bower_components/backbone-associations/backbone-associations-min',
           'css': 'bower_components/require-css/css.min',
+          'flux': 'bower_components/flux/dist/Flux',
           'jquery': 'bower_components/jquery/dist/jquery.min',
           'JSXTransformer': 'bower_components/react/JSXTransformer',
           'jsx': 'bower_components/jsx-requirejs-plugin/js/jsx',
+          'lodash': 'bower_components/lodash/dist/lodash.min',
           'moment': 'bower_components/moment/moment',
           'react': 'bower_components/react/react',
           'react-router': 'bower_components/react-router/dist/react-router',
@@ -38,10 +42,7 @@ html.no-js
         shim: {
           'react-router': {
             deps: ['react'],
-            exports: 'ReactRouter',
-            init: function(React) {
-              debugger
-            }
+            exports: 'ReactRouter'
           }
         }
       });
@@ -49,6 +50,8 @@ html.no-js
       require(['react'], function(React) {
         return window.React = React;
       });
+
+      require(['jsx!app']);
 
     //- Google Analytics: change UA-XXXXX-X to be your site's ID.
     //-
